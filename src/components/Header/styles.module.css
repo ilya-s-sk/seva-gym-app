@@ -1,0 +1,16 @@
+.header {
+  padding-bottom: 30px;
+}
+
+.inner {
+  padding: 10px 20px;
+
+  border-bottom: 1px solid var(--grey);
+  border-radius: 0 0 20px 20px;
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.title {
+  font-size: 24px;
+}

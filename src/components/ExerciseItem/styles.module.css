@@ -1,0 +1,79 @@
+.exerciseItem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 10px;
+  padding: 10px;
+
+  border: 1px solid var(--grey);
+  border-radius: 10px;
+
+  font-size: 20px;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.circlesBlock {
+  display: grid;
+  align-items: center;
+  grid-template-columns: max-content auto;
+  column-gap: 10px;
+}
+
+.activeCircle {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.increaseButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+
+  font-size: 20px;
+
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+
+  font-size: 32px;
+
+  background-color: var(--grey);
+  color: var(--white);
+
+  transition: transform 0.3s;
+}
+
+.times,
+.weights {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.subBlockTitle {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.active {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--green);
+}
