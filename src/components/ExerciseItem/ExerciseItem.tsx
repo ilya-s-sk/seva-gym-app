@@ -28,10 +28,10 @@ export const ExerciseItem: FunctionComponent<Props> = ({ exercise }) => {
       <div className={styles.circlesBlock}>
         <p>Подходы: <span className={styles.activeCircle}>{ currentCircle }</span> / {exercise.circles || 0}</p>
         <button className={styles.increaseButton} onClick={increaseCircle}>-</button>
+        <button className={styles.button} onClick={setNextCircle}>
+          +
+        </button>
       </div>
-      <button className={styles.button} onClick={setNextCircle}>
-        +
-      </button>
       <div className={styles.subBlock}>
         <p className={styles.subBlockTitle}>Повторения:</p>
         <p className={styles.times}>

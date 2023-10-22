@@ -19,9 +19,10 @@
 }
 
 .circlesBlock {
-  display: grid;
+  width: 100%;
+  display: flex;
+  justify-items: start;
   align-items: center;
-  grid-template-columns: max-content auto;
   column-gap: 10px;
 }
 
@@ -46,11 +47,12 @@
 }
 
 .button {
+  margin-left: auto;
   padding: 10px 15px;
   border: none;
   border-radius: 10px;
 
-  font-size: 32px;
+  font-size: 28px;
 
   background-color: var(--grey);
   color: var(--white);
