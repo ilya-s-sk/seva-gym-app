@@ -1,12 +1,15 @@
 export interface ExerciseType {
-  title: string;
+  id: number;
   circles: number;
-  times: number | number[];
-  weights: number[];
+  parts: {
+    title: string;
+    times: number | number[];
+    weights: number[];
+  }[]
 }
 
 export interface WorkoutDayType {
-  date: string;
+  date?: string;
   title: string;
   exercises: ExerciseType[];
 }

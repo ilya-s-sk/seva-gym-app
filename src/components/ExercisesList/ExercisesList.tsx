@@ -4,7 +4,7 @@ import { ExerciseItem } from "../ExerciseItem/ExerciseItem";
 import styles from './styles.module.css'
 
 interface Props {
-  exercises: ExerciseType[]
+  exercises: ExerciseType[];
 }
 
 export const ExercisesList: FunctionComponent<Props> = ({ exercises }) => {
@@ -12,7 +12,7 @@ export const ExercisesList: FunctionComponent<Props> = ({ exercises }) => {
     <ul className={styles.exercisesList}>
       {
         exercises.map((exercise) => (
-          <ExerciseItem key={exercise.title} exercise={exercise} />
+          <ExerciseItem key={exercise.id} exercise={exercise} />
         ))
       }
     </ul>
