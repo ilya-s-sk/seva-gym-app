@@ -1,34 +1,56 @@
-import { FunctionComponent, useState, Fragment } from "react";
+import { FunctionComponent, useState, Fragment, useEffect } from "react";
 import { ExerciseType } from "@/types";
 import styles from './styles.module.css';
 
 interface Props {
-  exercise: ExerciseType
+  exercise: ExerciseType;
+  whenCompletedStatusChange: (id: number, completed: boolean) => void;
 }
 
-export const ExerciseItem: FunctionComponent<Props> = ({ exercise }) => {
+export const ExerciseItem: FunctionComponent<Props> = ({ 
+  exercise, whenCompletedStatusChange
+}) => {
 
-  const [ currentCircle, setCurrentCirle ] = useState(1);
+  const [ currentCircle, setCurrentCirle ] = useState(exercise.currentCircle || 1);
 
   function setNextCircle() {
     if (currentCircle < exercise.circles) {
-      setCurrentCirle(currentCircle + 1);
+      const changedCircle = currentCircle + 1;
+      setCurrentCirle(changedCircle);
+      exercise.currentCircle = changedCircle;
     }
   }
 
-  function increaseCircle() {
+  function decreaseCircle() {
     if (currentCircle > 1) {
-      setCurrentCirle(currentCircle - 1);
+      const changedCircle = currentCircle - 1;
+      setCurrentCirle(changedCircle);
+      exercise.currentCircle = changedCircle;
     }
+  }
+
+  function handleCompletedStatusChange() {
+    exercise.isComplete = !Boolean(exercise.isComplete);
+    whenCompletedStatusChange(exercise.id, exercise.isComplete);
   }
 
   return (
-    <li className={styles.exerciseItem}>
+    <li className={`${styles.exerciseItem} ${exercise.isComplete ? styles.completed : ''}`}>
+      <p>{exercise.id}</p>
       <div className={styles.circlesBlock}>
         <p>Подходы: <span className={styles.activeCircle}>{ currentCircle }</span> / {exercise.circles || 0}</p>
-        <button className={styles.increaseButton} onClick={increaseCircle}>-</button>
+        <button className={styles.increaseButton} onClick={decreaseCircle}>-</button>
         <button className={styles.button} onClick={setNextCircle}>+</button>
       </div>
+
+      <input
+        className={styles.completeCheckbox}
+        checked={Boolean(exercise.isComplete)}
+        type="checkbox"
+        name="complete-exercise"
+        id="exercise"
+        onChange={handleCompletedStatusChange}
+      />
 
       {
         exercise.parts.map((part, index) => (

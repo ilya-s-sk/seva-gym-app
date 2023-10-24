@@ -1,6 +1,8 @@
 export interface ExerciseType {
   id: number;
   circles: number;
+  currentCircle?: number;
+  isComplete?: boolean;
   parts: {
     title: string;
     times: number | number[];

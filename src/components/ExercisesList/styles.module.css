@@ -1,5 +1,14 @@
-.exercisesList {
+.exercisesList,
+.completedList {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+}
+
+.completedSection {
+  padding-top: 20px;
+}
+
+.completedTitle {
+  margin-bottom: 10px;
 }

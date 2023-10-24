@@ -23,10 +23,10 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
         parts: [
           {
             title: 'Жим штанги в наклоне',
-            times: [ 
+            times: [
               15, 12, 10, 10, 8, 8,
             ],
-            weights: [ 
+            weights: [
               2.5, 5, 7.5, 10,
             ],
           }
@@ -38,7 +38,7 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
           {
             title: 'Жим гантелей на горизонтальной',
             times: 12,
-            weights: [ 
+            weights: [
               7, 8, 9, 10,
             ],
           }
@@ -50,7 +50,7 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
           {
             title: 'Разводка гантелей в наклоне',
             times: 15,
-            weights: [ 
+            weights: [
               3, 4, 5, 5,
             ],
           }
@@ -63,7 +63,7 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
           {
             title: 'Подъём гантлей стоя перед собой поочередно',
             times: 12,
-            weights: [ 
+            weights: [
               2, 3, 3, 4,
             ],
           }
@@ -79,34 +79,63 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
         circles: 4,
         parts: [
           {
-            title: 'Сведение в кроссовере от скамьи в наклоне',
+            title: 'Подтягивания',
+            times: 12,
+            weights: [
+              65, 60, 55, 50,
+            ],
+          }, {
+            title: ' + пулловер с канатом',
             times: 15,
             weights: [
-              5, 7, 7, 10,
-            ]
+              15, 20, 25, 30,
+            ],
           },
-        ]
-      },
+        ],
+      }, {
+        id: 1,
+        circles: 4,
+        parts: [{
+          title: 'Тяга одной рукой в наклоне с гантелью',
+          times: 12,
+          weights: [
+            7, 9, 10, 12
+          ]
+        }]
+      }, {
+        id: 2,
+        circles: 4,
+        parts: [
+          {
+            title: 'Тяга хамера 2 руками',
+            times: 12,
+            weights: [
+              5, 10, 15, 20,
+            ],
+          }, {
+            title: ' + пулловер с прямой рукояткой',
+            times: 12,
+            weights: [
+              5, 10, 15, 20,
+            ],
+          },
+        ],
+      }, {
+        id: 3,
+        circles: 4,
+        parts: [{
+          title: 'Плечи: махи гантелей в стороны тяжелые сидя',
+          times: 12,
+          weights: [
+            2, 3, 4, 5,
+          ]
+        }]
+      }
     ]
   },
 };
 
 /* 
-2.
-
-Спина
-
-Подтягивания + пулловер с канатом 4 по 12/15 вес 65,60,55,50+15,20,25,30
-
-Тяга одной рукой в наклоне с гантелью 4 по 12 вес 7,9,10,12
-
-Тяга хамера 2 руками + пулловер с прямой рукояткой 4 по 12 вес 5,10,15,20
-
-Плечи 
-
-махи гантелей в стороны тяжелые сидя 4 по 15 вес 2,3,4,5
-
-….
 
 3.Ноги/пресс 
 
