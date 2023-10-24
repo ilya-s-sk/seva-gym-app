@@ -43,13 +43,17 @@ export const ExercisesList: FunctionComponent<Props> = ({ exercises }) => {
     <>
       <ul className={styles.exercisesList}>
         {
-          sortedActiveExercises.map((exercise) => (
+          !!sortedActiveExercises.length 
+          ? sortedActiveExercises.map((exercise) => (
             <ExerciseItem
               key={exercise.id}
               exercise={exercise}
               whenCompletedStatusChange={toggleExerciseStatus}
             />
           ))
+          : (
+            <h3 className={styles.endTitle}>Славная была тренировка!</h3>
+          )
         }
       </ul>
       {
