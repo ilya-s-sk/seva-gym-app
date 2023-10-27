@@ -7,11 +7,11 @@ interface Props {
   whenCompletedStatusChange: (id: number, completed: boolean) => void;
 }
 
-export const ExerciseItem: FunctionComponent<Props> = ({ 
+export const ExerciseItem: FunctionComponent<Props> = ({
   exercise, whenCompletedStatusChange
 }) => {
 
-  const [ currentCircle, setCurrentCirle ] = useState(exercise.currentCircle || 1);
+  const [currentCircle, setCurrentCirle] = useState(exercise.currentCircle || 1);
 
   function setNextCircle() {
     if (currentCircle < exercise.circles) {
@@ -36,42 +36,29 @@ export const ExerciseItem: FunctionComponent<Props> = ({
 
   return (
     <li className={`${styles.exerciseItem} ${exercise.isComplete ? styles.completed : ''}`}>
-      <p>{exercise.id}</p>
+      <div className={styles.header}>
+
+        <input
+          className={styles.completeCheckbox}
+          checked={Boolean(exercise.isComplete)}
+          type="checkbox"
+          name="complete-exercise"
+          id="exercise"
+          onChange={handleCompletedStatusChange}
+        />
+
+        <p>{exercise.id}</p>
+      </div>
       <div className={styles.circlesBlock}>
-        <p>Подходы: <span className={styles.activeCircle}>{ currentCircle }</span> / {exercise.circles || 0}</p>
+        <p>Подходы: <span className={styles.activeCircle}>{currentCircle}</span> / {exercise.circles || 0}</p>
         <button className={styles.increaseButton} onClick={decreaseCircle}>-</button>
         <button className={styles.button} onClick={setNextCircle}>+</button>
       </div>
 
-      <input
-        className={styles.completeCheckbox}
-        checked={Boolean(exercise.isComplete)}
-        type="checkbox"
-        name="complete-exercise"
-        id="exercise"
-        onChange={handleCompletedStatusChange}
-      />
-
       {
         exercise.parts.map((part, index) => (
-          <Fragment key={index}>
+          <div className={styles.exercisePart} key={index}>
             <p className={styles.title}>{part.title}</p>
-
-            <div className={styles.subBlock}>
-              <p className={styles.subBlockTitle}>Повторения:</p>
-              <p className={styles.times}>
-                {
-                  typeof part.times === 'number'
-                    ? ( <span className={styles.active}>{part.times}</span> )
-                    : part.times.map((time, ind) => (
-                      <span
-                        key={ind}
-                        className={ind + 1 === currentCircle ? styles.active : ''}
-                      >{time}</span>
-                    ))
-                }
-              </p>
-            </div>
 
             <div className={styles.subBlock}>
               <p className={styles.subBlockTitle}>Вес:</p>
@@ -81,16 +68,32 @@ export const ExerciseItem: FunctionComponent<Props> = ({
                     <span
                       key={ind}
                       className={
-                        ind + 1 === currentCircle || (ind === part.weights.length - 1 && currentCircle > ind) 
-                        ? styles.active 
-                        : ''
+                        ind + 1 === currentCircle || (ind === part.weights.length - 1 && currentCircle > ind)
+                          ? styles.active
+                          : ''
                       }
                     >{weight}</span>
                   ))
                 }
               </p>
             </div>
-          </Fragment>
+
+            <div className={styles.subBlock}>
+              <p className={styles.subBlockTitle}>Повторения:</p>
+              <p className={styles.times}>
+                {
+                  typeof part.times === 'number'
+                    ? (<span className={styles.active}>{part.times}</span>)
+                    : part.times.map((time, ind) => (
+                      <span
+                        key={ind}
+                        className={ind + 1 === currentCircle ? styles.active : ''}
+                      >{time}</span>
+                    ))
+                }
+              </p>
+            </div>
+          </div>
         ))
       }
     </li>

@@ -2,7 +2,7 @@ import { WorkoutDayType } from "@/types";
 
 export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
   '24.10.2023': {
-    date: '24.10',
+    date: '24.10.2023',
     title: 'Грудь/передняя дельта',
     exercises: [
       {
@@ -72,6 +72,7 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
     ]
   },
   '26.10.2023': {
+    date: '26.10.2023',
     title: 'Спина/плечи',
     exercises: [
       {
@@ -133,27 +134,87 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
       }
     ]
   },
+  '28.10.2023': {
+    date: '28.10.2023',
+    title: 'Ноги/пресс ',
+    exercises: [
+      {
+        id: 1,
+        circles: 4,
+        parts: [
+          {
+            title: 'Разгибания ног сидя',
+            times: 15,
+            weights: [
+              5, 7.5, 10, 15,
+            ]
+          }
+        ]
+      },
+      {
+        id: 2,
+        circles: 5,
+        parts: [
+          {
+            title: 'Жим ногами',
+            times: 12,
+            weights: [
+              80, 100, 130, 150, 170,
+            ]
+          }
+        ]
+      },
+      {
+        id: 3,
+        circles: 4,
+        parts: [
+          {
+            title: 'Румынская  тяга с гантелями',
+            times: 12,
+            weights: [
+              10, 15, 20, 25,
+            ]
+          }
+        ]
+      },
+      {
+        id: 4,
+        circles: 4,
+        parts: [
+          {
+            title: 'Сгибания ног',
+            times: 15,
+            weights: [
+              10, 15, 20, 25
+            ]
+          }
+        ]
+      },
+      {
+        id: 5,
+        circles: 4,
+        parts: [
+          {
+            title: 'Сведение',
+            times: 15,
+            weights: [
+              35, 40, 45, 50
+            ]
+          },
+          {
+            title: 'икры',
+            times: 15,
+            weights: [
+              10, 15, 20, 25
+            ]
+          }
+        ]
+      },
+    ]
+  }
 };
 
 /* 
-
-3.Ноги/пресс 
-
-Ноги
-
-Разгибания ног сидя 4 по 15 вес 5,7.5,10,15
-
-Жим ногами 5 по 12 вес 80,100,130,150,170
-
-Румынская  тяга с гантелями 4 по 12
-вес 10,15,20,25
-
-Сгибания ног 4 по 15 вес 10,15,20,25
-
-Сведение+икры 4 по 15 вес 35,40,45,50
-
-
-….
 
 4.Грудь/трицепс 
 
