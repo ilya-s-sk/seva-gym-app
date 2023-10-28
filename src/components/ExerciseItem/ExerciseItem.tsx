@@ -4,11 +4,11 @@ import styles from './styles.module.css';
 
 interface Props {
   exercise: ExerciseType;
-  whenCompletedStatusChange: (id: number, completed: boolean) => void;
+  whenExersiceChange: (id: number, exercise: Partial<ExerciseType>) => void;
 }
 
 export const ExerciseItem: FunctionComponent<Props> = ({
-  exercise, whenCompletedStatusChange
+  exercise, whenExersiceChange
 }) => {
 
   const [currentCircle, setCurrentCirle] = useState(exercise.currentCircle || 1);
@@ -18,6 +18,9 @@ export const ExerciseItem: FunctionComponent<Props> = ({
       const changedCircle = currentCircle + 1;
       setCurrentCirle(changedCircle);
       exercise.currentCircle = changedCircle;
+      whenExersiceChange(exercise.id, {
+        currentCircle: exercise.currentCircle,
+      });
     }
   }
 
@@ -26,12 +29,17 @@ export const ExerciseItem: FunctionComponent<Props> = ({
       const changedCircle = currentCircle - 1;
       setCurrentCirle(changedCircle);
       exercise.currentCircle = changedCircle;
+      whenExersiceChange(exercise.id, {
+        currentCircle: exercise.currentCircle,
+      });
     }
   }
 
   function handleCompletedStatusChange() {
     exercise.isComplete = !Boolean(exercise.isComplete);
-    whenCompletedStatusChange(exercise.id, exercise.isComplete);
+    whenExersiceChange(exercise.id, {
+      isComplete: exercise.isComplete,
+    });
   }
 
   return (

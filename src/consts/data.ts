@@ -134,7 +134,7 @@ export const WORKOUT_DATA: Record<string, WorkoutDayType> = {
       }
     ]
   },
-  '28.10.2023': {
+  '29.10.2023': {
     date: '28.10.2023',
     title: 'Ноги/пресс ',
     exercises: [

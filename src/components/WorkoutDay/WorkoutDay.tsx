@@ -11,7 +11,6 @@ interface Props {
 export const WorkoutDay: FunctionComponent<Props> = ({ 
   workoutDayData,
   whenExercisesChange
-
 }) => {
   return (
     <section className={styles.workoutDay}>

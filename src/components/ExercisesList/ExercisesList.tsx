@@ -30,18 +30,14 @@ export const ExercisesList: FunctionComponent<Props> = ({
     setExercisesLists(exercises);
   }, [ exercises ])
 
-  function toggleExerciseStatus(id: number, completed: boolean) {
-    const newExercises = exercises.map(exercise => {
-      if (exercise.id === id) {
-        return {
-          ...exercise,
-          isComplete: completed,
-        }
-      }
-      return exercise;
-    });
-    setExercisesLists(newExercises);
-    whenExercisesChange(newExercises);
+  function handleExerciseChange(id: number, newExercise: Partial<ExerciseType>) {
+    const needToUpdateLists = 'isComplete' in newExercise;
+    const newExercises = [...exercises];
+
+    if (needToUpdateLists) {
+      setExercisesLists(newExercises);
+    }
+    whenExercisesChange(exercises);
   }
 
   return (
@@ -53,7 +49,7 @@ export const ExercisesList: FunctionComponent<Props> = ({
             <ExerciseItem
               key={exercise.id}
               exercise={exercise}
-              whenCompletedStatusChange={toggleExerciseStatus}
+              whenExersiceChange={handleExerciseChange}
             />
           ))
           : (
@@ -71,7 +67,7 @@ export const ExercisesList: FunctionComponent<Props> = ({
                   <ExerciseItem
                     key={exercise.id}
                     exercise={exercise}
-                    whenCompletedStatusChange={toggleExerciseStatus}
+                    whenExersiceChange={handleExerciseChange}
                   />
                 ))
               }
