@@ -13,6 +13,9 @@ const WORKOUT_DATA_LS_KEY = 'workoutData';
 const days = Object.keys(WORKOUT_DATA);
 
 function mergeStoredData() {
+  if (typeof window === 'undefined') {
+    return;
+  }
 
   const savedData = localStorage.getItem(WORKOUT_DATA_LS_KEY);
     if (savedData) {
