@@ -4,9 +4,16 @@ import { Header } from "@/components/Header/Header";
 import { WorkoutDay } from "@/components/WorkoutDay/WorkoutDay";
 
 import { WORKOUT_DATA } from "@/consts/data";
-import { WorkoutDayType, ExerciseType } from "@/types";
+import { ExerciseType, WorkoutDayType } from "@/types";
+import { 
+  savePickedDate,
+  getPickedDate,
+  saveWorkoutData,
+  getWorkoutData
+} from "@/utils/data-handlers";
 import { getTodayDateString } from "@/utils/get-date";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 const WORKOUT_DATA_LS_KEY = 'workoutData';
 
@@ -31,19 +38,43 @@ function mergeStoredData() {
     }
 }
 
-mergeStoredData()
-
 export default function Home() {
+  const [ workoutData, setWorkoutData ] = useState(WORKOUT_DATA);
 
   const today = getTodayDateString();
   const [ currentDate, setCurrentDate ] = useState(today);
 
+  const [ currentWorkout, setCurrentWorkout ] = useState(workoutData[currentDate]);
+
+  useEffect(() => {
+    const pickedDate = getPickedDate();
+    if (pickedDate) {
+      setCurrentDate(pickedDate);
+    }
+
+    const savedWorkoutData = getWorkoutData();
+    if (savedWorkoutData) {
+      console.log(savedWorkoutData);
+      
+      setWorkoutData({ ...savedWorkoutData });
+      setCurrentWorkout({...workoutData[currentDate]});
+    }
+  }, []);
+
   function pickDate(date: string = today) {
     setCurrentDate(date);
+    savePickedDate(date);
   }
 
-  function handleExercisesChange(): void {
-    localStorage.setItem(WORKOUT_DATA_LS_KEY, JSON.stringify(WORKOUT_DATA));
+  function handleExercisesChange(exercises: ExerciseType[]): void {
+    const changedData = {
+      ...WORKOUT_DATA,
+      [currentDate]: {
+        ...WORKOUT_DATA[currentDate],
+        exercises,
+      }
+    }
+    saveWorkoutData(changedData);
   }
 
   return (
@@ -56,7 +87,7 @@ export default function Home() {
           whenOptionPicked={pickDate}
         />
         <WorkoutDay
-          workoutDayData={WORKOUT_DATA[currentDate]}
+          workoutDayData={currentWorkout}
           whenExercisesChange={handleExercisesChange}
         />
       </main>

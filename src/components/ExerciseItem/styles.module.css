@@ -33,7 +33,7 @@
 .circlesBlock {
   width: 100%;
   display: flex;
-  justify-items: start;
+  justify-content: start;
   align-items: center;
   column-gap: 10px;
 }
@@ -59,8 +59,12 @@
 }
 
 .button {
+  display: flex;
+  place-content: center;
+  
   margin-left: auto;
-  padding: 10px 15px;
+  width: 42px;
+  height: 42px;
   border: none;
   border-radius: 10px;
 

@@ -12,31 +12,24 @@ export const ExercisesList: FunctionComponent<Props> = ({
   exercises,
   whenExercisesChange,
 }) => {
-  const [activeExercises, setActiveExercises] = useState(
-    [...exercises].filter(({isComplete}) => !isComplete)
-  );
-  const [completedExercises, setCompletedExercises] = useState(
-    [...exercises].filter(({isComplete}) => isComplete)
-  );
+  const [ statedExercises, setStatedExercises ] = useState(exercises);
+
+  const activeExercises = statedExercises.filter(({isComplete}) => !isComplete);
+  const completedExercises = statedExercises.filter(({isComplete}) => isComplete);
 
   const sortedActiveExercises = [...activeExercises].sort((e1, e2) => e1.id - e2.id);
 
-  function setExercisesLists(exercises: ExerciseType[]) {
-    setActiveExercises([...exercises].filter(({isComplete}) => !isComplete));
-    setCompletedExercises([...exercises].filter(({isComplete}) => isComplete));
-  }
-
   useEffect(() => {
-    setExercisesLists(exercises);
+    setStatedExercises(exercises);
   }, [ exercises ])
 
   function handleExerciseChange(id: number, newExercise: Partial<ExerciseType>) {
     const needToUpdateLists = 'isComplete' in newExercise;
-    const newExercises = [...exercises];
 
     if (needToUpdateLists) {
-      setExercisesLists(newExercises);
+      setStatedExercises([...exercises]);
     }
+    
     whenExercisesChange(exercises);
   }
 

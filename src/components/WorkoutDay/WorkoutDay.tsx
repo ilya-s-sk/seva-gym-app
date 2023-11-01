@@ -1,6 +1,12 @@
 import { FunctionComponent } from "react";
 import { WorkoutDayType, ExerciseType } from "@/types";
 import { ExercisesList } from "../ExercisesList/ExercisesList";
+import { 
+  savePickedDate,
+  getPickedDate,
+  saveWorkoutData,
+  getWorkoutData
+} from "@/utils/data-handlers";
 import styles from './styles.module.css';
 
 interface Props {

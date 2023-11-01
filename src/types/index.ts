@@ -15,3 +15,5 @@ export interface WorkoutDayType {
   title: string;
   exercises: ExerciseType[];
 }
+
+export type WorkoutData = Record<string, WorkoutDayType>
