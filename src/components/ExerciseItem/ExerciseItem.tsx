@@ -72,11 +72,12 @@ export const ExerciseItem: FunctionComponent<Props> = ({
               <p className={styles.subBlockTitle}>Вес:</p>
               <p className={styles.weights}>
                 {
-                  part.weights.map((weight, ind) => (
+                  !!part.weights?.length
+                  && part.weights.map((weight, ind) => (
                     <span
                       key={ind}
                       className={
-                        ind + 1 === currentCircle || (ind === part.weights.length - 1 && currentCircle > ind)
+                        ind + 1 === currentCircle || (ind === part.weights!.length - 1 && currentCircle > ind)
                           ? styles.active
                           : ''
                       }
@@ -90,14 +91,14 @@ export const ExerciseItem: FunctionComponent<Props> = ({
               <p className={styles.subBlockTitle}>Повторения:</p>
               <p className={styles.times}>
                 {
-                  typeof part.times === 'number'
-                    ? (<span className={styles.active}>{part.times}</span>)
-                    : part.times.map((time, ind) => (
+                  Array.isArray(part.times)
+                    ? part.times.map((time, ind) => (
                       <span
                         key={ind}
                         className={ind + 1 === currentCircle ? styles.active : ''}
                       >{time}</span>
                     ))
+                    : (<span className={styles.active}>{part.times}</span>)
                 }
               </p>
             </div>

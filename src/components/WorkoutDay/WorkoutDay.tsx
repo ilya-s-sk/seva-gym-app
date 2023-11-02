@@ -18,10 +18,11 @@ export const WorkoutDay: FunctionComponent<Props> = ({
   workoutDayData,
   whenExercisesChange
 }) => {
+
   return (
     <section className={styles.workoutDay}>
       {
-        workoutDayData
+        workoutDayData && workoutDayData.exercises
           ? (
             <>
               <p>{workoutDayData.date}</p>

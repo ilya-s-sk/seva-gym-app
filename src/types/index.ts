@@ -5,8 +5,8 @@ export interface ExerciseType {
   isComplete?: boolean;
   parts: {
     title: string;
-    times: number | number[];
-    weights: number[];
+    times: string | number | number[];
+    weights?: number[];
   }[]
 }
 

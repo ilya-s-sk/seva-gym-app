@@ -22,9 +22,12 @@ export const DayPicker: FunctionComponent<Props> = ({
 
   function pickOption(option?: string): void {
     whenOptionPicked(option);
-    if (dialogRef.current) {
-      (dialogRef.current as HTMLDialogElement).close();
-    }
+   
+    setTimeout(() => {
+      if (dialogRef.current) {
+        (dialogRef.current as HTMLDialogElement).close();
+      }
+    }, 0)
   }
 
   return (

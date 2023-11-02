@@ -12,10 +12,10 @@ export const ExercisesList: FunctionComponent<Props> = ({
   exercises,
   whenExercisesChange,
 }) => {
-  const [ statedExercises, setStatedExercises ] = useState(exercises);
+  const [ statedExercises, setStatedExercises ] = useState(exercises || []);
 
-  const activeExercises = statedExercises.filter(({isComplete}) => !isComplete);
-  const completedExercises = statedExercises.filter(({isComplete}) => isComplete);
+  const activeExercises = statedExercises?.filter(({isComplete}) => !isComplete);
+  const completedExercises = statedExercises?.filter(({isComplete}) => isComplete);
 
   const sortedActiveExercises = [...activeExercises].sort((e1, e2) => e1.id - e2.id);
 
