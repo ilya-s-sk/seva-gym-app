@@ -60,7 +60,9 @@ export const ExerciseItem: FunctionComponent<Props> = ({
       <div className={styles.circlesBlock}>
         <p>Подходы: <span className={styles.activeCircle}>{currentCircle}</span> / {exercise.circles || 0}</p>
         <button className={styles.increaseButton} onClick={decreaseCircle}>-</button>
-        <button className={styles.button} onClick={setNextCircle}>+</button>
+        <button className={styles.button} onClick={setNextCircle}>
+          <span className={styles.buttonContent}>+</span>
+        </button>
       </div>
 
       {

@@ -59,10 +59,14 @@
 }
 
 .button {
+  box-sizing: border-box;
+
   display: flex;
-  place-content: center;
+  justify-content: center;
+  align-items: center;
   
   margin-left: auto;
+  padding: 10px;
   width: 42px;
   height: 42px;
   border: none;
@@ -72,6 +76,12 @@
 
   background-color: var(--grey);
   color: var(--white);
+}
+
+.buttonContent {
+  align-self: center;
+
+  line-height: 100%;
 }
 
 .exercisePart {
