@@ -445,7 +445,6 @@ export const WORKOUT_DATA: WorkoutData = {
   },
 };
 
-
 /* 
 6.Ноги
 
