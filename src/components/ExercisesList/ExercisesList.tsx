@@ -1,16 +1,15 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { ExerciseType } from "@/types";
+import { STORAGE } from "@/utils/data-handlers";
 import { ExerciseItem } from "../ExerciseItem/ExerciseItem";
 import styles from './styles.module.css'
 
 interface Props {
   exercises: ExerciseType[];
-  whenExercisesChange: (exercises: ExerciseType[]) => void;
 }
 
 export const ExercisesList: FunctionComponent<Props> = ({ 
   exercises,
-  whenExercisesChange,
 }) => {
   const [ statedExercises, setStatedExercises ] = useState(exercises || []);
 
@@ -29,8 +28,13 @@ export const ExercisesList: FunctionComponent<Props> = ({
     if (needToUpdateLists) {
       setStatedExercises([...exercises]);
     }
-    
-    whenExercisesChange(exercises);
+
+    const currentDate = STORAGE.getPickedDate()!;
+    STORAGE.saveWorkoutData({
+      [currentDate]: {
+        exercises,
+      }
+    });
   }
 
   return (

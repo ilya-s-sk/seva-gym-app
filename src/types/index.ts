@@ -17,3 +17,7 @@ export interface WorkoutDayType {
 }
 
 export type WorkoutData = Record<string, WorkoutDayType>
+
+export type DeepPartial<T> = T extends object ? {
+  [P in keyof T]?: DeepPartial<T[P]>;
+} : T;

@@ -1,4 +1,4 @@
-import { DialogHTMLAttributes, FunctionComponent, useRef, useState } from "react";
+import { FunctionComponent, useRef } from "react";
 import styles from './styles.module.css';
 
 interface Props {

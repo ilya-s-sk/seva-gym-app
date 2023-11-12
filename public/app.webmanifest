@@ -1,0 +1,9 @@
+{
+  "name": "Seva Gym App",
+  "related_applications": [
+    {
+        "platform": "webapp",
+        "url": "https://ilya-s-sk.github.io/seva-gym-app/app.webmanifest"
+    }
+  ]
+}

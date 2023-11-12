@@ -13,26 +13,30 @@ export const ExerciseItem: FunctionComponent<Props> = ({
 
   const [currentCircle, setCurrentCirle] = useState(exercise.currentCircle || 1);
 
-  function setNextCircle() {
+  useEffect(() => {
+    setCurrentCirle(exercise.currentCircle || 1);
+  }, [exercise])
+
+  function increaseCircle() {
     if (currentCircle < exercise.circles) {
       const changedCircle = currentCircle + 1;
-      setCurrentCirle(changedCircle);
-      exercise.currentCircle = changedCircle;
-      whenExersiceChange(exercise.id, {
-        currentCircle: exercise.currentCircle,
-      });
+      changeCirlce(changedCircle);
     }
   }
 
   function decreaseCircle() {
     if (currentCircle > 1) {
       const changedCircle = currentCircle - 1;
-      setCurrentCirle(changedCircle);
-      exercise.currentCircle = changedCircle;
-      whenExersiceChange(exercise.id, {
-        currentCircle: exercise.currentCircle,
-      });
+      changeCirlce(changedCircle);
     }
+  }
+
+  function changeCirlce(changedCircle: number) {
+    setCurrentCirle(changedCircle);
+    exercise.currentCircle = changedCircle;
+    whenExersiceChange(exercise.id, {
+      currentCircle: exercise.currentCircle,
+    });
   }
 
   function handleCompletedStatusChange() {
@@ -60,7 +64,7 @@ export const ExerciseItem: FunctionComponent<Props> = ({
       <div className={styles.circlesBlock}>
         <p>Подходы: <span className={styles.activeCircle}>{currentCircle}</span> / {exercise.circles || 0}</p>
         <button className={styles.increaseButton} onClick={decreaseCircle}>-</button>
-        <button className={styles.button} onClick={setNextCircle}>
+        <button className={styles.button} onClick={increaseCircle}>
           <span className={styles.buttonContent}>+</span>
         </button>
       </div>
