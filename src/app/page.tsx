@@ -1,10 +1,9 @@
 'use client'
 import { useEffect, useState } from "react";
-import { isEqual } from "lodash"
+import { isEqual, merge } from "lodash"
 import { Header } from "@/components/Header/Header";
 import { Main } from "@/components/Main/Main";
 import { WORKOUT_DATA } from "@/consts/data";
-import { WorkoutData } from "@/types";
 import { getTodayDateString } from "@/utils/get-date";
 import { STORAGE } from "@/utils/data-handlers";
 
@@ -28,7 +27,10 @@ export default function Home() {
     if (!storedWorkoutData) {
       STORAGE.saveWorkoutData(initWorkoutData);
     } else if (!isEqual(storedWorkoutData, initWorkoutData)) {
-      setInitWorkoutData(storedWorkoutData);
+      const mergedData = merge(storedWorkoutData, initWorkoutData);
+
+      setInitWorkoutData(mergedData);
+      STORAGE.saveWorkoutData(mergedData);
     }
   }, []);
 
