@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Seva Gym App',
   description: 'Go to The Gym with Seva',
-  icons: '/seva.jpeg',
-  manifest: '/app.webmanifest',
+  icons: '/seva-gym-app/seva.jpeg',
+  manifest: '/seva-gym-app/app.webmanifest',
 }
 
 export default function RootLayout({
