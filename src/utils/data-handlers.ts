@@ -1,7 +1,6 @@
 import { isEqual, merge } from "lodash"
 import { PICKED_DATE_LS_KEY, WORKOUT_DATA_LS_KEY } from "@/consts/ls-keys";
-import { WORKOUT_DATA } from "@/consts/data";
-import { WorkoutData, DeepPartial } from "@/types";
+import { WorkoutData, DeepPartial, WorkoutDayType } from "@/types";
 
 const checkIsClient = () => typeof window !== 'undefined';
 
@@ -43,7 +42,36 @@ function getWorkoutData() {
   } catch(err) { 
     console.error(err);
     return null
-   }
+  }
+}
+
+function saveDataByDate(date: string, data: DeepPartial<WorkoutDayType>) {
+  if (!checkIsClient()) return;
+
+  const oldData = getDataByDate(date);
+
+  if (oldData && !isEqual(oldData, data)) {
+    data = merge(oldData, data);
+  }
+
+  const jsonData = JSON.stringify(data);
+  localStorage.setItem(date, jsonData);
+}
+
+function getDataByDate(date: string) {
+  if (!checkIsClient()) return;
+
+  const savedData = localStorage.getItem(date);
+
+  if (!savedData) return;
+
+  try {
+    const parsedData: WorkoutData = JSON.parse(savedData);
+    return parsedData;
+  } catch(err) { 
+    console.error(err);
+    return null
+  }
 }
 
 export const STORAGE = {
@@ -51,4 +79,6 @@ export const STORAGE = {
   getPickedDate,
   saveWorkoutData,
   getWorkoutData,
+  saveDataByDate,
+  getDataByDate,
 }
