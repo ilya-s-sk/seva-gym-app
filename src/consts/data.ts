@@ -723,8 +723,63 @@ export const WORKOUT_DATA: WorkoutData = {
       },
     ]
   },
-  '23.11.2023': {
-    date: '23.11.2023',
+  '05.12.2023': {
+    date: '05.12.2023',
+    title: '',
+    exercises: [
+      {
+        id: 1,
+        circles: 4,
+        parts: [
+          {
+            title: 'Отжимания с широкой постановкой рук',
+            times: 14,
+            weights: [],
+          },
+          {
+            title: 'бабочка',
+            times: 14,
+            weights: [25, 30, 35, 40],
+          },
+        ],
+      },
+      {
+        id: 2,
+        circles: 4,
+        parts: [
+          {
+            title: 'сведение в кроссовере на наклонной скамье 30\'',
+            times: 12,
+            weights: [5,7.5,10,10],
+          },
+        ],
+      },
+      {
+        id: 3,
+        circles: 4,
+        parts: [
+          {
+            title: 'Французский жим',
+            times: 12,
+            weights: [1.25,2.5,5,5],
+          },
+        ],
+      },
+      {
+        id: 4,
+        circles: 4,
+        parts: [
+          {
+            title: 'брусья «гравитрон»',
+            times: 15,
+            weights: [60,55,50,45],
+          },
+        ],
+      }
+    ]
+  },
+  '07.12.2023': {
+    date: '07.12.2023',
     title: 'Спина/плечи',
     exercises: [
       {
@@ -794,8 +849,8 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ],
   },
-  '26.11.2023': {
-    date: '26.11.2023',
+  '09.12.2023': {
+    date: '09.12.2023',
     title: 'Ноги',
     exercises: [
       {
@@ -843,9 +898,9 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ]
   },
-  '28.11.2023': {
+  '12.12.2023': {
     title: 'Грудь/средняя дельта',
-    date: '28.11.2023',
+    date: '12.12.2023',
     exercises: [
       {
         id: 1,
@@ -897,8 +952,8 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ],
   },
-  '30.11.2023': {
-    date: '30.11.2023',
+  '14.12.2023': {
+    date: '14.12.2023',
     title: 'Спина/трапеция',
     exercises: [
       {
@@ -947,9 +1002,9 @@ export const WORKOUT_DATA: WorkoutData = {
       },
     ]
   },
-  '02.12.2023': {
+  '16.12.2023': {
     title: 'ноги',
-    date: '02.12.2023',
+    date: '16.12.2023',
     exercises: [
       {
         id: 1,
@@ -1008,9 +1063,9 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ],
   },
-  '05.12.2023': {
+  '19.12.2023': {
     title: 'Грудь/бицепс',
-    date: '05.12.2023',
+    date: '19.12.2023',
     exercises: [
       {
         id: 1,
@@ -1062,7 +1117,7 @@ export const WORKOUT_DATA: WorkoutData = {
         circles: 4,
         parts: [
           {
-            title: 'молотки 4',
+            title: 'молотки',
             times: 12,
             weights: [4, 6, 7.5, 8],
           }
@@ -1070,9 +1125,9 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ]
   },
-  '07.12.2023': {
+  '21.12.2023': {
     title: 'Спина/трицепс/передняя дельта',
-    date: '07.12.2023',
+    date: '21.12.2023',
     exercises: [
       {
         id: 1,
@@ -1130,9 +1185,9 @@ export const WORKOUT_DATA: WorkoutData = {
       },
     ],
   },
-  '09.12.2023': {
+  '23.12.2023': {
     title: 'Ноги',
-    date: '09.12.2023',
+    date: '23.12.2023',
     exercises: [
       {
         id: 1,
@@ -1192,9 +1247,9 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ],
   },
-  '12.12.2023': {
+  '26.12.2023': {
     title: 'Грудь/задняя дельта',
-    date: '12.12.2023',
+    date: '26.12.2023',
     exercises: [
       {
         id: 1,
@@ -1241,9 +1296,9 @@ export const WORKOUT_DATA: WorkoutData = {
       }
     ],
   },
-  '14.12.2023': {
+  '28.12.2023': {
     title: 'Спина/дельты',
-    date: '14.12.2023',
+    date: '28.12.2023',
     exercises: [
       {
         id: 1,
@@ -1299,6 +1354,6 @@ export const WORKOUT_DATA: WorkoutData = {
           }
         ]
       }
-    ]
-  }
+    ],
+  },
 };
